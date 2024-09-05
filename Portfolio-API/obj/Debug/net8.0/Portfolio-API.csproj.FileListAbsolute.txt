@@ -32,3 +32,10 @@ C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio
 C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\obj\Debug\net8.0\Portfolio-API.pdb
 C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\obj\Debug\net8.0\Portfolio-API.genruntimeconfig.cache
 C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\obj\Debug\net8.0\ref\Portfolio-API.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\DataAccess.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\Interface.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\Logic.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\DataAccess.pdb
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\Interface.pdb
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\Logic.pdb
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\obj\Debug\net8.0\Portfolio-API.sourcelink.json

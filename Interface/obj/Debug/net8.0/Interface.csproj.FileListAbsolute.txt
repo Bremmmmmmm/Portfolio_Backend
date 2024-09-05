@@ -9,3 +9,4 @@ C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio
 C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Interface\obj\Debug\net8.0\refint\Interface.dll
 C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Interface\obj\Debug\net8.0\Interface.pdb
 C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Interface\obj\Debug\net8.0\ref\Interface.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Interface\obj\Debug\net8.0\Interface.sourcelink.json
