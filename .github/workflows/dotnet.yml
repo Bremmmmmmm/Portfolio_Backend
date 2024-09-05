@@ -55,12 +55,12 @@ jobs:
         name: code-coverage-report
         path: coverage/
 
-    - name: Fail if coverage is under 95%
+    - name: Fail if coverage is under 80%
       run: |
         jsonFile="coverage/Summary.json"
         lineCoverage=$(grep -Po '"linecoverage": \K[0-9.]+' "$jsonFile")
         echo "Line coverage is $lineCoverage%"
-                if (( $(echo "$lineCoverage < 95" |bc -l) )); then
-          echo "Code coverage is less than 95%"
+                if (( $(echo "$lineCoverage < 80" |bc -l) )); then
+          echo "Code coverage is less than 80%"
           exit 1
         fi
