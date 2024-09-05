@@ -1,0 +1,24 @@
+﻿using System.Text.Json;
+using Interface.Config;
+
+namespace Portfolio_API;
+
+public class ConfigLoader : IConfigLoader
+{
+    private readonly Config _config;
+    
+    public ConfigLoader()
+    {
+        _config = JsonSerializer.Deserialize<Config>(File.ReadAllText("config.json"));
+    }
+    
+    public T GetConfig<T>()
+    {
+        return typeof(T) switch
+        {
+            _ when typeof(T) == typeof(Config) => (T)(object)_config,
+            _ when typeof(T) == typeof(DbConf) => (T)(object)_config.DbConfig,
+            _ => throw new Exception("Config type not found")
+        };
+    }
+}

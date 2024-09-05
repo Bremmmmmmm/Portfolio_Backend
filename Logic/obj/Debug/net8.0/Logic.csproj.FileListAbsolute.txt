@@ -1,0 +1,11 @@
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\bin\Debug\net8.0\Logic.deps.json
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\bin\Debug\net8.0\Logic.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\bin\Debug\net8.0\Logic.pdb
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\obj\Debug\net8.0\Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\obj\Debug\net8.0\Logic.AssemblyInfoInputs.cache
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\obj\Debug\net8.0\Logic.AssemblyInfo.cs
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\obj\Debug\net8.0\Logic.csproj.CoreCompileInputs.cache
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\obj\Debug\net8.0\Logic.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\obj\Debug\net8.0\refint\Logic.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\obj\Debug\net8.0\Logic.pdb
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Logic\obj\Debug\net8.0\ref\Logic.dll
