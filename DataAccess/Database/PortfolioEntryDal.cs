@@ -1,7 +1,6 @@
 ﻿using System.Data.SqlClient;
 using Interface.Dtos;
 using Interface.Interfaces.Dal;
-using Microsoft.Data.SqlClient;
 
 namespace DataAccess.Database;
 
