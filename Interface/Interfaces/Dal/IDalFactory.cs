@@ -2,5 +2,5 @@
 
 public interface IDalFactory
 {
-    
+    public IPortfolioEntryDal BuildPortfolioEntryDal();
 }

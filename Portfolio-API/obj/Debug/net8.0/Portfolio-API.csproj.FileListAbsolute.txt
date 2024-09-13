@@ -39,3 +39,10 @@ C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio
 C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\Interface.pdb
 C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\Logic.pdb
 C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\obj\Debug\net8.0\Portfolio-API.sourcelink.json
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\Fleck.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\System.Data.SqlClient.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\brams\Desktop\School\semester-3-maar-again\IndividueelProject\Portfolio_Backend\Portfolio-API\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

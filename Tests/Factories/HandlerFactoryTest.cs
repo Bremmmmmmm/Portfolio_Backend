@@ -24,4 +24,15 @@ public class HandlerFactoryTest
         //assert
         Assert.IsNotNull(handlerFactory);
     }
+    
+    [TestMethod]
+    public void BuildFilmHandlerTest()
+    {
+        //arrange
+        var handlerFactory = new HandlerFactory(_containerFactory);
+        //act
+        var portfolioEntryHandler = handlerFactory.BuildPortfolioEntryHandler();
+        //assert
+        Assert.IsNotNull(portfolioEntryHandler);
+    }
 }

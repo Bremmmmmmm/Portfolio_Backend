@@ -9,6 +9,7 @@ using Portfolio_API;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -34,9 +35,9 @@ builder.Services.AddSingleton<IWebSocketHandler, WebSocketHandler>();
 
 var app = builder.Build();
 
-var webSocketManager = app.Services.GetRequiredService<IWebSocketHandler>();
+//var webSocketManager = app.Services.GetRequiredService<IWebSocketHandler>();
 
-app.UseWebSockets();
+//app.UseWebSockets();
 
 app.UseCors("AllowAll");
 

@@ -2,5 +2,5 @@
 
 public interface IContainerFactory
 {
-    
+    public IPortfolioEntryContainer BuildPortfolioEntryContainer();
 }

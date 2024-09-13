@@ -2,5 +2,5 @@
 
 public interface IHandlerFactory
 {
-    
+    public IPortfolioEntryHandler BuildPortfolioEntryHandler();
 }
