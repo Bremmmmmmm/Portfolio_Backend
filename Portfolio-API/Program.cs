@@ -1,4 +1,5 @@
 using DataAccess.Factories;
+using Fleck;
 using Interface.Config;
 using Interface.Interfaces.Dal;
 using Interface.Interfaces.Logic;
@@ -35,9 +36,9 @@ builder.Services.AddSingleton<IWebSocketHandler, WebSocketHandler>();
 
 var app = builder.Build();
 
-//var webSocketManager = app.Services.GetRequiredService<IWebSocketHandler>();
+var webSocketManager = app.Services.GetRequiredService<IWebSocketHandler>();
 
-//app.UseWebSockets();
+app.UseWebSockets();
 
 app.UseCors("AllowAll");
 
@@ -55,20 +56,19 @@ app.UseAuthorization();
 app.MapControllers();
 
 
-// var server = new WebSocketServer("ws://127.0.0.1:8080");
-//
-// server.Start(socket =>
-// {
-//     socket.OnOpen = () =>
-//     {
-//         Console.WriteLine("WebSocket Opened");
-//         webSocketManager.AddSocket(socket);
-//     };
-//     socket.OnClose = () =>
-//     {
-//         Console.WriteLine("WebSocket Closed");
-//         webSocketManager.RemoveSocket(socket);
-//     };
-// });
+var server = new WebSocketServer("ws://127.0.0.1:8080");
+server.Start(socket =>
+{
+    socket.OnOpen = () =>
+    {
+        Console.WriteLine("WebSocket Opened");
+        webSocketManager.AddSocket(socket);
+    };
+    socket.OnClose = () =>
+    {
+        Console.WriteLine("WebSocket Closed");
+        webSocketManager.RemoveSocket(socket);
+    };
+});
 
 app.Run();

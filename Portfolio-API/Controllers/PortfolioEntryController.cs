@@ -93,6 +93,7 @@ public class PortfolioEntryController : Controller
     }
     
     [HttpDelete]
+    [Route("DeletePortfolioEntry")]
     public async Task<IActionResult> DeletePortfolioEntry(int id)
     {
         Response.Headers.Add("Access-Control-Allow-Origin", "*");

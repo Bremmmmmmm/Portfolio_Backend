@@ -633,6 +633,9 @@
       },
       "System.Reflection.Metadata/1.6.0": {},
       "Interface/1.0.0": {
+        "dependencies": {
+          "Fleck": "1.2.0"
+        },
         "runtime": {
           "Interface.dll": {
             "assemblyVersion": "1.0.0",
