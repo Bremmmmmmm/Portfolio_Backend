@@ -56,7 +56,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 
-var server = new WebSocketServer("ws://127.0.0.1:8080");
+var server = new WebSocketServer("ws://127.0.0.1:8081");
 server.Start(socket =>
 {
     socket.OnOpen = () =>
