@@ -39,7 +39,7 @@ jobs:
       with:
         solutionPath: ./Portfolio_Backend.sln
         dotnetVersion: ${{ steps.setup-dotnet.outputs.dotnet-version }}
-      continue-on-error: true
+        failOnIssue: 0
     - name: Upload Test results
       uses: actions/upload-artifact@master
       with:
