@@ -105,7 +105,9 @@ public class PortfolioEntryHandlerTests
         //act
         await portfolioEntryHandler.DeletePortfolioEntry(1);
         //assert
-        var portfolioEntry = await portfolioEntryHandler.GetPortfolioEntryById(1);
-        Assert.IsNull(portfolioEntry);
+        await Assert.ThrowsExceptionAsync<InvalidOperationException>(async () =>
+        {
+            await portfolioEntryHandler.GetPortfolioEntryById(1);
+        });
     }
 }
