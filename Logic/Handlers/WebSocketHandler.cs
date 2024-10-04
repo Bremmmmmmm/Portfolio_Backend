@@ -5,12 +5,7 @@ namespace Logic.Handlers;
 
 public class WebSocketHandler : IWebSocketHandler
 {
-    private readonly List<IWebSocketConnection> _sockets;
-
-    public WebSocketHandler()
-    {
-        _sockets = new List<IWebSocketConnection>();
-    }
+    private readonly List<IWebSocketConnection> _sockets = [];
 
     public void AddSocket(IWebSocketConnection socket)
     {

@@ -4,49 +4,42 @@ using Interface.RequestBodies;
 
 namespace Logic.Handlers;
 
-public class PortfolioEntryHandler : IPortfolioEntryHandler
+public class PortfolioEntryHandler(IPortfolioEntryContainer portfolioEntryContainer) : IPortfolioEntryHandler
 {
-    private readonly IPortfolioEntryContainer _portfolioEntryContainer;
-    
-    public PortfolioEntryHandler(IPortfolioEntryContainer portfolioEntryContainer)
-    {
-        _portfolioEntryContainer = portfolioEntryContainer;
-    }
-    
     public async Task CreatePortfolioEntry(PortfolioEntryBody body)
     {
-        await _portfolioEntryContainer.CreatePortfolioEntry(new PortfolioEntryDto
+        await portfolioEntryContainer.CreatePortfolioEntry(new PortfolioEntryDto
         {
             Id = body.Id,
             Title = body.Title,
             Description = body.Description,
-            MediaUrl = body.MediaUrl,
+            MediaUrl = body.MediaUrl
         });
     }
 
     public async Task<PortfolioEntryDto> GetPortfolioEntryById(int id)
     {
-        return await _portfolioEntryContainer.GetPortfolioEntryById(id);
+        return await portfolioEntryContainer.GetPortfolioEntryById(id);
     }
 
     public async Task<List<PortfolioEntryDto>> GetAllPortfolioEntries()
     {
-        return await _portfolioEntryContainer.GetAllPortfolioEntries();
+        return await portfolioEntryContainer.GetAllPortfolioEntries();
     }
 
     public async Task UpdatePortfolioEntry(PortfolioEntryBody body)
     {
-        await _portfolioEntryContainer.UpdatePortfolioEntry(new PortfolioEntryDto
+        await portfolioEntryContainer.UpdatePortfolioEntry(new PortfolioEntryDto
         {
             Id = body.Id,
             Title = body.Title,
             Description = body.Description,
-            MediaUrl = body.MediaUrl,
+            MediaUrl = body.MediaUrl
         });
     }
     
     public async Task DeletePortfolioEntry(int id)
     {
-        await _portfolioEntryContainer.DeletePortfolioEntry(id);
+        await portfolioEntryContainer.DeletePortfolioEntry(id);
     }
 }

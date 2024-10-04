@@ -4,15 +4,10 @@ using Interface.Interfaces.Logic;
 
 namespace Logic.Containers;
 
-public class PortfolioEntryContainer : IPortfolioEntryContainer
+public class PortfolioEntryContainer(IDalFactory dalFactory) : IPortfolioEntryContainer
 {
-    private readonly IPortfolioEntryDal _portfolioEntryDal;
-    
-    public PortfolioEntryContainer(IDalFactory dalFactory)
-    {
-        _portfolioEntryDal = dalFactory.BuildPortfolioEntryDal();
-    }
-    
+    private readonly IPortfolioEntryDal _portfolioEntryDal = dalFactory.BuildPortfolioEntryDal();
+
     public async Task CreatePortfolioEntry(PortfolioEntryDto body)
     {
         await _portfolioEntryDal.CreatePortfolioEntry(body);

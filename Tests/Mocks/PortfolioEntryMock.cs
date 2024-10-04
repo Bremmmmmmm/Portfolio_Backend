@@ -36,12 +36,10 @@ public class PortfolioEntryMock : IPortfolioEntryDal
         await Task.Run(() =>
         {
             var entry = _entries.FirstOrDefault(x => x.Id == portfolioEntryDto.Id);
-            if (entry != null)
-            {
-                entry.Title = portfolioEntryDto.Title;
-                entry.Description = portfolioEntryDto.Description;
-                entry.MediaUrl = portfolioEntryDto.MediaUrl;
-            }
+            if (entry == null) return;
+            entry.Title = portfolioEntryDto.Title;
+            entry.Description = portfolioEntryDto.Description;
+            entry.MediaUrl = portfolioEntryDto.MediaUrl;
         });
     }
 

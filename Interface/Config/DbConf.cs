@@ -1,11 +1,6 @@
 ﻿namespace Interface.Config;
 
-public struct DbConf
+public readonly struct DbConf(string connectionString)
 {
-    public DbConf(string connectionString)
-    {
-        ConnectionString = connectionString;
-    }
-
-    public string ConnectionString { get; }
+    public string ConnectionString { get; } = connectionString;
 }

@@ -5,15 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Portfolio_API.Controllers;
 
 [ApiController]
-public class PortfolioEntryController : Controller
+public class PortfolioEntryController(ILogicFactoryBuilder logicFactoryBuilder) : Controller
 {
-    private readonly ILogicFactoryBuilder _logicFactoryBuilder;
-    
-    public PortfolioEntryController(ILogicFactoryBuilder logicFactoryBuilder)
-    {
-        _logicFactoryBuilder = logicFactoryBuilder;
-    }
-    
     [HttpPost]
     [Route("CreatePortfolioEntry")]
     public async Task<IActionResult> CreatePortfolioEntry([FromBody] PortfolioEntryBody body)
@@ -25,7 +18,7 @@ public class PortfolioEntryController : Controller
 
         try
         {
-            await _logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().CreatePortfolioEntry(body);
+            await logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().CreatePortfolioEntry(body);
             return Ok();
         }
         catch (Exception e)
@@ -41,7 +34,7 @@ public class PortfolioEntryController : Controller
     {
         try
         {
-            var portfolioEntry = await _logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().GetPortfolioEntryById(id);
+            var portfolioEntry = await logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().GetPortfolioEntryById(id);
             return Ok(portfolioEntry);
         }
         catch (Exception e)
@@ -57,7 +50,7 @@ public class PortfolioEntryController : Controller
     {
         try
         {
-            var portfolioEntries = await _logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().GetAllPortfolioEntries();
+            var portfolioEntries = await logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().GetAllPortfolioEntries();
             return Ok(portfolioEntries);
         }
         catch (Exception e)
@@ -78,7 +71,7 @@ public class PortfolioEntryController : Controller
 
         try
         {
-            await _logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().UpdatePortfolioEntry(body);
+            await logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().UpdatePortfolioEntry(body);
             return Ok();
         }
         catch (Exception e)
@@ -94,7 +87,7 @@ public class PortfolioEntryController : Controller
     {
         try
         {
-            await _logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().DeletePortfolioEntry(id);
+            await logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().DeletePortfolioEntry(id);
             return Ok();
         }
         catch (Exception e)
@@ -104,24 +97,11 @@ public class PortfolioEntryController : Controller
         }
     }
     
-    private (bool, string) CreatePortfolioEntryRequestIsValid(PortfolioEntryBody body)
+    private static (bool, string) CreatePortfolioEntryRequestIsValid(PortfolioEntryBody body)
     {
-        if (body.Id <= 0)
-        {
-            return (false, "Invalid Id");
-        }
-        if (string.IsNullOrWhiteSpace(body.Title))
-        {
-            return (false, "Title is required");
-        }
-        if (string.IsNullOrWhiteSpace(body.Description))
-        {
-            return (false, "Description is required");
-        }
-        if (string.IsNullOrWhiteSpace(body.MediaUrl))
-        {
-            return (false, "MediaUrl is required");
-        }
-        return (true, string.Empty);
+        return body.Id <= 0 ? (false, "Invalid Id") :
+            string.IsNullOrWhiteSpace(body.Title) ? (false, "Title is required") :
+            string.IsNullOrWhiteSpace(body.Description) ? (false, "Description is required") :
+            string.IsNullOrWhiteSpace(body.MediaUrl) ? (false, "MediaUrl is required") : (true, string.Empty);
     }
 }

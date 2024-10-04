@@ -22,7 +22,7 @@ public class PortfolioEntryHandlerTests
             Id = 1,
             Title = "Title",
             Description = "Description",
-            MediaUrl = "MediaUrl",
+            MediaUrl = "MediaUrl"
         };
     }
     

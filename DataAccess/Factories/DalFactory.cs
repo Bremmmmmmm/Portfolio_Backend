@@ -4,17 +4,10 @@ using Interface.Interfaces.Dal;
 
 namespace DataAccess.Factories;
 
-public class DalFactory : IDalFactory
+public class DalFactory(IConfigLoader configLoader) : IDalFactory
 {
-    private readonly IConfigLoader _configLoader;
-    
-    public DalFactory(IConfigLoader configLoader)
-    {
-        _configLoader = configLoader;
-    }
-
     public IPortfolioEntryDal BuildPortfolioEntryDal()
     {
-        return new PortfolioEntryDal(_configLoader.GetConfig<DbConf>().ConnectionString);
+        return new PortfolioEntryDal(configLoader.GetConfig<DbConf>().ConnectionString);
     }
 }

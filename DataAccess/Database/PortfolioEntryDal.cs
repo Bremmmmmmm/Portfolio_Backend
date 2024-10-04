@@ -4,18 +4,11 @@ using Microsoft.Data.SqlClient;
 
 namespace DataAccess.Database;
 
-public class PortfolioEntryDal : IPortfolioEntryDal
+public class PortfolioEntryDal(string connectionString) : IPortfolioEntryDal
 {
-    private readonly string _connectionString;
-
-    public PortfolioEntryDal(string connectionString)
-    {
-        _connectionString = connectionString;
-    }
-
     public async Task CreatePortfolioEntry(PortfolioEntryDto portfolioEntryDto)
     {
-        await using var connection = new SqlConnection(_connectionString);
+        await using var connection = new SqlConnection(connectionString);
         try
         {
             await using (connection)
@@ -46,7 +39,7 @@ public class PortfolioEntryDal : IPortfolioEntryDal
 
     public async Task<PortfolioEntryDto> GetPortfolioEntryById(int id)
     {
-        await using var connection = new SqlConnection(_connectionString);
+        await using var connection = new SqlConnection(connectionString);
         try
         {
             await using (connection)
@@ -63,7 +56,7 @@ public class PortfolioEntryDal : IPortfolioEntryDal
                         Id = reader.GetInt32(0),
                         Title = reader.GetString(1),
                         Description = reader.GetString(2),
-                        MediaUrl = reader.GetString(3),
+                        MediaUrl = reader.GetString(3)
                     };
                 }
             }
@@ -82,7 +75,7 @@ public class PortfolioEntryDal : IPortfolioEntryDal
 
     public async Task<List<PortfolioEntryDto>> GetAllPortfolioEntries()
     {
-        await using var connection = new SqlConnection(_connectionString);
+        await using var connection = new SqlConnection(connectionString);
         var portfolioEntries = new List<PortfolioEntryDto>();
         try
         {
@@ -99,7 +92,7 @@ public class PortfolioEntryDal : IPortfolioEntryDal
                         Id = reader.GetInt32(0),
                         Title = reader.GetString(1),
                         Description = reader.GetString(2),
-                        MediaUrl = reader.GetString(3),
+                        MediaUrl = reader.GetString(3)
                     });
                 }
             }
@@ -118,7 +111,7 @@ public class PortfolioEntryDal : IPortfolioEntryDal
 
     public async Task UpdatePortfolioEntry(PortfolioEntryDto portfolioEntryDto)
     {
-        await using var connection = new SqlConnection(_connectionString);
+        await using var connection = new SqlConnection(connectionString);
         try
         {
             await using (connection)
@@ -148,7 +141,7 @@ public class PortfolioEntryDal : IPortfolioEntryDal
     
     public async Task DeletePortfolioEntry(int id)
     {
-        await using var connection = new SqlConnection(_connectionString);
+        await using var connection = new SqlConnection(connectionString);
         try
         {
             await using (connection)

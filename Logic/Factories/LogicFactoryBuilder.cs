@@ -3,15 +3,8 @@ using Interface.Interfaces.Logic;
 
 namespace Logic.Factories;
 
-public class LogicFactoryBuilder : ILogicFactoryBuilder
+public class LogicFactoryBuilder(IDalFactory dalFactory) : ILogicFactoryBuilder
 {
-    private readonly IDalFactory _dalFactory;
-    
-    public LogicFactoryBuilder(IDalFactory dalFactory)
-    {
-        _dalFactory = dalFactory;
-    }
-    
     public IHandlerFactory BuildHandlerFactory()
     {
         return new HandlerFactory(BuildContainerFactory());
@@ -19,6 +12,6 @@ public class LogicFactoryBuilder : ILogicFactoryBuilder
     
     public IContainerFactory BuildContainerFactory()
     {
-        return new ContainerFactory(_dalFactory);
+        return new ContainerFactory(dalFactory);
     }
 }

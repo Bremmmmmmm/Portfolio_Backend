@@ -4,16 +4,10 @@ using Logic.Containers;
 
 namespace Logic.Factories;
 
-public class ContainerFactory : IContainerFactory
+public class ContainerFactory(IDalFactory dalFactory) : IContainerFactory
 {
-    private readonly IDalFactory _dalFactory;
-    
-    public ContainerFactory(IDalFactory dalFactory)
-    {
-        _dalFactory = dalFactory;
-    }
     public IPortfolioEntryContainer BuildPortfolioEntryContainer()
     {
-        return new PortfolioEntryContainer(_dalFactory);
+        return new PortfolioEntryContainer(dalFactory);
     }
 }

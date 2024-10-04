@@ -43,7 +43,7 @@ public class WebSocketHandlerTest
         var handler = new WebSocketHandler();
         var mockSocket1 = new Mock<IWebSocketConnection>();
         var mockSocket2 = new Mock<IWebSocketConnection>();
-        var message = "Test message";
+        const string message = "Test message";
         handler.AddSocket(mockSocket1.Object);
         handler.AddSocket(mockSocket2.Object);
 

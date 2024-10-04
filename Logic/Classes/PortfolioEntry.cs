@@ -2,21 +2,13 @@
 
 namespace Logic.Classes;
 
-public class PortfolioEntry
+public class PortfolioEntry(PortfolioEntryDto dto)
 {
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public string MediaUrl { get; set; }
-    
-    public PortfolioEntry(PortfolioEntryDto dto)
-    {
-        Id = dto.Id;
-        Title = dto.Title;
-        Description = dto.Description;
-        MediaUrl = dto.MediaUrl;
-    }
-    
+    public int Id { get; } = dto.Id;
+    public string Title { get; } = dto.Title;
+    public string Description { get; } = dto.Description;
+    public string MediaUrl { get; } = dto.MediaUrl;
+
     public PortfolioEntryDto ToDto()
     {
         return new PortfolioEntryDto()

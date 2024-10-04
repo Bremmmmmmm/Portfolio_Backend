@@ -5,13 +5,8 @@ namespace Portfolio_API;
 
 public class ConfigLoader : IConfigLoader
 {
-    private readonly Config _config;
-    
-    public ConfigLoader()
-    {
-        _config = JsonSerializer.Deserialize<Config>(File.ReadAllText("config.json"));
-    }
-    
+    private readonly Config _config = JsonSerializer.Deserialize<Config>(File.ReadAllText("config.json"));
+
     public T GetConfig<T>()
     {
         return typeof(T) switch
