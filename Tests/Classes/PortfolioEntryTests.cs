@@ -11,7 +11,7 @@ public class PortfolioEntryTests
     [TestInitialize]
     public void Initialize()
     {
-        _portfolioEntryDto = new PortfolioEntryDto()
+        _portfolioEntryDto = new PortfolioEntryDto
         {
             Id = 1,
             Title = "Test",

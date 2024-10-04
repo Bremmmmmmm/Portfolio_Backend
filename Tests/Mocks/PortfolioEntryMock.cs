@@ -5,8 +5,8 @@ namespace Tests.Mocks;
 
 public class PortfolioEntryMock : IPortfolioEntryDal
 {
-    private readonly List<PortfolioEntryDto> _entries = new()
-    {
+    private readonly List<PortfolioEntryDto> _entries =
+    [
         new PortfolioEntryDto
         {
             Id = 0,
@@ -14,7 +14,7 @@ public class PortfolioEntryMock : IPortfolioEntryDal
             Description = "Test",
             MediaUrl = "Test"
         }
-    };
+    ];
     
     public async Task CreatePortfolioEntry(PortfolioEntryDto portfolioEntryDto)
     {

@@ -51,7 +51,7 @@ public class PortfolioEntryDal(string connectionString) : IPortfolioEntryDal
                 
                 while (await reader.ReadAsync())
                 {
-                    return new PortfolioEntryDto()
+                    return new PortfolioEntryDto
                     {
                         Id = reader.GetInt32(0),
                         Title = reader.GetString(1),
@@ -87,7 +87,7 @@ public class PortfolioEntryDal(string connectionString) : IPortfolioEntryDal
                 
                 while (await reader.ReadAsync())
                 {
-                    portfolioEntries.Add(new PortfolioEntryDto()
+                    portfolioEntries.Add(new PortfolioEntryDto
                     {
                         Id = reader.GetInt32(0),
                         Title = reader.GetString(1),

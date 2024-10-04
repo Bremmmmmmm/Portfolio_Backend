@@ -11,7 +11,7 @@ public class PortfolioEntry(PortfolioEntryDto dto)
 
     public PortfolioEntryDto ToDto()
     {
-        return new PortfolioEntryDto()
+        return new PortfolioEntryDto
         {
             Id = Id,
             Title = Title,
