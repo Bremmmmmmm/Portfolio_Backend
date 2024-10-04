@@ -12,7 +12,7 @@ namespace Tests.Handlers;
 [TestClass]
 public class PortfolioEntryHandlerTests
 {
-    private IPortfolioEntryContainer _portfolioEntryContainer;
+    private IPortfolioEntryContainer _portfolioEntryContainer = null!;
     private PortfolioEntryBody _portfolioEntryBody;
     
     [TestInitialize]

@@ -18,7 +18,6 @@ public class PortfolioEntryController : Controller
     [Route("CreatePortfolioEntry")]
     public async Task<IActionResult> CreatePortfolioEntry([FromBody] PortfolioEntryBody body)
     {
-        Response.Headers.Add("Access-Control-Allow-Origin", "*");
         if(!CreatePortfolioEntryRequestIsValid(body).Item1)
         {
             return BadRequest(CreatePortfolioEntryRequestIsValid(body).Item2);
@@ -40,7 +39,6 @@ public class PortfolioEntryController : Controller
     [Route("GetPortfolioEntryById")]
     public async Task<IActionResult> GetPortfolioEntryById(int id)
     {
-        Response.Headers.Add("Access-Control-Allow-Origin", "*");
         try
         {
             var portfolioEntry = await _logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().GetPortfolioEntryById(id);
@@ -57,7 +55,6 @@ public class PortfolioEntryController : Controller
     [Route("GetAllPortfolioEntries")]
     public async Task<IActionResult> GetAllPortfolioEntries()
     {
-        Response.Headers.Add("Access-Control-Allow-Origin", "*");
         try
         {
             var portfolioEntries = await _logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().GetAllPortfolioEntries();
@@ -74,7 +71,6 @@ public class PortfolioEntryController : Controller
     [Route("UpdatePortfolioEntry")]
     public async Task<IActionResult> UpdatePortfolioEntry([FromBody] PortfolioEntryBody body)
     {
-        Response.Headers.Add("Access-Control-Allow-Origin", "*");
         if(!CreatePortfolioEntryRequestIsValid(body).Item1)
         {
             return BadRequest(CreatePortfolioEntryRequestIsValid(body).Item2);
@@ -96,7 +92,6 @@ public class PortfolioEntryController : Controller
     [Route("DeletePortfolioEntry")]
     public async Task<IActionResult> DeletePortfolioEntry(int id)
     {
-        Response.Headers.Add("Access-Control-Allow-Origin", "*");
         try
         {
             await _logicFactoryBuilder.BuildHandlerFactory().BuildPortfolioEntryHandler().DeletePortfolioEntry(id);

@@ -23,7 +23,7 @@ public class PortfolioEntryMock : IPortfolioEntryDal
 
     public async Task<PortfolioEntryDto> GetPortfolioEntryById(int id)
     {
-        return await Task.Run(() => _entries.FirstOrDefault(x => x.Id == id));
+        return await Task.Run(() => _entries.FirstOrDefault(x => x.Id == id)) ?? throw new InvalidOperationException();
     }
 
     public async Task<List<PortfolioEntryDto>> GetAllPortfolioEntries()

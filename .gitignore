@@ -85,3 +85,6 @@ fabric.properties
 Portfolio_Backend.sln.DotSettings.user
 
 Portfolio-API/config.json
+
+**/obj/
+**/bin/

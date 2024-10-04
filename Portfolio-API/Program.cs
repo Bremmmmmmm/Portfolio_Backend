@@ -30,7 +30,6 @@ builder.Services.AddSingleton<IConfigLoader, ConfigLoader>();
 builder.Services.AddScoped<IDalFactory, DalFactory>();
 builder.Services.AddScoped<ILogicFactoryBuilder, LogicFactoryBuilder>();
 
-
 // Register WebSocketManager as a singleton
 builder.Services.AddSingleton<IWebSocketHandler, WebSocketHandler>();
 
@@ -54,7 +53,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
 
 var server = new WebSocketServer("ws://127.0.0.1:8081");
 server.Start(socket =>
