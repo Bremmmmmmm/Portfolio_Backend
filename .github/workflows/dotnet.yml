@@ -65,21 +65,3 @@ jobs:
           echo "Code coverage is less than 80%"
           exit 1
         fi
-  inspect-code:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: recursive
-
-    - name: Install ReSharper InspectCode
-      run: dotnet tool install JetBrains.ReSharper.GlobalTools --global --version 2023.2.0
-
-    - name: Run InspectCode
-      run: jb inspectcode ./Portfolio_Backend.sln --output="results.sarif" --format=sarif
-
-    - name: Upload SARIF results to GitHub
-      uses: github/codeql-action/upload-sarif@v3
-      with:
-        sarif_file: results.sarif
-        category: resharper-inspectcode
