@@ -1,10 +1,7 @@
-﻿using Interface.Interfaces.Dal;
-using Interface.Interfaces.Logic;
+﻿using Interface.Interfaces.Logic;
 using Interface.RequestBodies;
-using Logic.Containers;
 using Logic.Factories;
 using Logic.Handlers;
-using Moq;
 using MockFactory = Tests.Mocks.MockFactory;
 
 namespace Tests.Handlers;

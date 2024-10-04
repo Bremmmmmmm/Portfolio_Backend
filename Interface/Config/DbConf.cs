@@ -2,5 +2,10 @@
 
 public struct DbConf
 {
-    public string ConnectionString { get; set; }
+    public DbConf(string connectionString)
+    {
+        ConnectionString = connectionString;
+    }
+
+    public string ConnectionString { get; }
 }
