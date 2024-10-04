@@ -7,7 +7,7 @@ public class PortfolioEntryMock : IPortfolioEntryDal
 {
     private readonly List<PortfolioEntryDto> _entries =
     [
-        new PortfolioEntryDto
+        new()
         {
             Id = 0,
             Title = "Test",
