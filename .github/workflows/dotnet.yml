@@ -40,9 +40,11 @@ jobs:
         solutionPath: ./Portfolio_Backend.sln
         dotnetVersion: ${{ steps.setup-dotnet.outputs.dotnet-version }}
         failOnIssue: 0
-    - name: Show Report
-      run: |
-        cat report.xml
+    - name: Upload Test results
+      uses: actions/upload-artifact@master
+      with:
+           name: Code inspection report
+           path: '/home/runner/work/Portfolio_Backend/Portfolio_Backend/result'
     - name: Upload Test results
       uses: actions/upload-artifact@master
       with:
