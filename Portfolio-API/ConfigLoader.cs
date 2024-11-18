@@ -1,11 +1,12 @@
 ﻿using System.Text.Json;
 using Interface.Config;
+using Interface.Shared;
 
 namespace Portfolio_API;
 
 public class ConfigLoader : IConfigLoader
 {
-    private readonly Config _config = JsonSerializer.Deserialize<Config>(File.ReadAllText("config.json"));
+    private readonly Config _config = JsonSerializer.Deserialize<Config>(File.ReadAllText("config.json"), JsonOptionData.Default);
 
     public T GetConfig<T>()
     {
