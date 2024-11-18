@@ -32,6 +32,6 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: .
-        file: Portfolio-API/Dockerfile
+        file: Dockerfile
         push: true
         tags: bremmmmmmm/portfolio-backend:latest
