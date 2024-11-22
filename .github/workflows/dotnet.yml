@@ -48,7 +48,7 @@ jobs:
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
 
     - name: Create Coverage Report
-      run: reportgenerator -reports:**/coverage.opencover.xml -targetdir:coverage/ -reporttypes:JsonSummary
+      run: reportgenerator -reports:coverage.opencover.xml -targetdir:coverage/ -reporttypes:JsonSummary
 
     - name: Upload coverage to artifact
       uses: actions/upload-artifact@v3
