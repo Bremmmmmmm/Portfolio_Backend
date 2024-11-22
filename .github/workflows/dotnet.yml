@@ -94,7 +94,7 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
      - name: List Coverage Directory
-       run: ls -la coverage/
+       run: Get-ChildItem -Path coverage/
         
      - name: Build and Analyze
        shell: cmd
