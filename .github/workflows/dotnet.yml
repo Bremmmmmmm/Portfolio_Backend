@@ -96,6 +96,6 @@ jobs:
      - name: Build and Analyze
        shell: cmd
        run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Bremmmmmmm_Portfolio_Backend_e30cca67-e530-4ab5-8159-f4a629493907" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Bremmmmmmm_Portfolio_Backend_e30cca67-e530-4ab5-8159-f4a629493907" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" /d:sonar.coverage.opencover.reportPaths="TestResults/*/coverage.opencover.xml"
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
