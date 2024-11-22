@@ -50,6 +50,9 @@ jobs:
     - name: Create Coverage Report
       run: reportgenerator -reports:**/coverage.opencover.xml -targetdir:coverage/ -reporttypes:JsonSummary
 
+    - name: List Coverage Directory
+      run: Get-ChildItem -Path coverage/
+
     - name: Upload coverage to artifact
       uses: actions/upload-artifact@v3
       with:
@@ -92,9 +95,6 @@ jobs:
               mkdir .\.sonar\scanner
           )
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
-
-     - name: List Coverage Directory
-       run: Get-ChildItem -Path coverage/
         
      - name: Build and Analyze
        shell: cmd
