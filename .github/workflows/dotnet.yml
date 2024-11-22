@@ -93,18 +93,12 @@ jobs:
           )
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
-     - name: Debug coverage file
-       shell: pwsh
-       run: |
-          echo "Listing TestResults directory:"
-          Get-ChildItem -Recurse -Path TestResults
-
-          echo "Listing coverage.opencover.xml in all subdirectories:"
-          Get-ChildItem -Recurse -Filter "coverage.opencover.xml" | ForEach-Object { $_.FullName }
-
+     - name: List Coverage Directory
+       run: ls -la coverage/
+        
      - name: Build and Analyze
        shell: cmd
        run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Bremmmmmmm_Portfolio_Backend_e30cca67-e530-4ab5-8159-f4a629493907" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" /d:sonar.coverage.opencover.reportPaths="TestResults/**/coverage.opencover.xml"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Bremmmmmmm_Portfolio_Backend_e30cca67-e530-4ab5-8159-f4a629493907" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
