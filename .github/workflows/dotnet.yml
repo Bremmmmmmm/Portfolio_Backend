@@ -42,7 +42,7 @@ jobs:
     
     - name: Test with coverage
       run: |
-        dotnet test --collect:"XPlat Code Coverage;Format=opencover;--results-directory ./TestResults"Exclude=[DataAccess]*,[ViewerVerse_API]*" 
+        dotnet test --collect:"XPlat Code Coverage;Format=opencover;--results-directory ./TestResults";Exclude=[DataAccess]*,[ViewerVerse_API]*" 
         
     - name: Install ReportGenerator tool
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
