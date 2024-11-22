@@ -102,7 +102,5 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"Bremmmmmmm_Portfolio_Backend_e30cca67-e530-4ab5-8159-f4a629493907"
           /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
           /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
-          /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
-          dotnet build --no-incremental
-          dotnet-coverage collect "dotnet test" -f xml -o "coverage.xml"
+          dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
