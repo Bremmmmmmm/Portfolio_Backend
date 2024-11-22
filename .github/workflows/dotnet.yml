@@ -50,9 +50,6 @@ jobs:
     - name: Create Coverage Report
       run: reportgenerator -reports:**/coverage.opencover.xml -targetdir:coverage/ -reporttypes:JsonSummary
 
-    - name: List Coverage Directory
-      run: ls -la coverage/
-
     - name: Upload coverage to artifact
       uses: actions/upload-artifact@v3
       with:
