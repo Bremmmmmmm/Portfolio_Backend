@@ -51,7 +51,7 @@ jobs:
       run: reportgenerator -reports:**/coverage.opencover.xml -targetdir:coverage/ -reporttypes:JsonSummary
 
     - name: List Coverage Directory
-      run: Get-ChildItem -Path coverage/
+      run: ls -la coverage/
 
     - name: Upload coverage to artifact
       uses: actions/upload-artifact@v3
