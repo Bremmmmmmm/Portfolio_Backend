@@ -100,8 +100,10 @@ jobs:
        run: |
           dotnet test --collect:"XPlat Code Coverage;Exclude=[DataAccess]*,[ViewerVerse_API]*"
 
-     - name: test
-       run: reportgenerator -reports:**/coverage.cobertura.xml" -targetdir:"coverage-report" -reporttypes:"SonarQube"
+     - name: Generate SonarQube Coverage Report
+       run: |
+         reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"coverage-report" -reporttypes:"SonarQube"
+       shell: pwsh
        
      - name: Build and Analyze
        shell: cmd
