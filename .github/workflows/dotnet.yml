@@ -43,12 +43,6 @@ jobs:
     - name: Test with coverage
       run: |
         dotnet test --collect:"XPlat Code Coverage;Format=opencover;Exclude=[DataAccess]*,[ViewerVerse_API]*" 
-
-    - name: Upload coverage reports
-      uses: actions/upload-artifact@v3
-      with:
-        name: coverage-reports
-        path: covarage/coverage.opencover.xml
         
     - name: Install ReportGenerator tool
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
@@ -102,6 +96,6 @@ jobs:
      - name: Build and Analyze
        shell: cmd
        run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Bremmmmmmm_Portfolio_Backend_e30cca67-e530-4ab5-8159-f4a629493907" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" /d:sonar.coverageReportPaths="TestResults/coverage.opencover.xml"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Bremmmmmmm_Portfolio_Backend_e30cca67-e530-4ab5-8159-f4a629493907" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" /d:sonar.coverageReportPaths="**/coverage.opencover.xml"
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
