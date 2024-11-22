@@ -92,6 +92,9 @@ jobs:
               mkdir .\.sonar\scanner
           )
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+          
+     - name: Install ReportGenerator tool
+       run: dotnet tool install --global dotnet-reportgenerator-globaltool
 
      - name: Test with coverage
        run: |
