@@ -94,11 +94,13 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
      - name: Debug coverage file
+       shell: pwsh
        run: |
           echo "Listing TestResults directory:"
-          ls -R TestResults
+          Get-ChildItem -Recurse -Path TestResults
+
           echo "Listing coverage.opencover.xml in all subdirectories:"
-          find . -name "coverage.opencover.xml"
+          Get-ChildItem -Recurse -Filter "coverage.opencover.xml" | ForEach-Object { $_.FullName }
 
      - name: Build and Analyze
        shell: cmd
