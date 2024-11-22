@@ -103,7 +103,6 @@ jobs:
      - name: Generate SonarQube Coverage Report
        run: |
          reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"coverage-report" -reporttypes:"SonarQube"
-       shell: pwsh
        
      - name: Build and Analyze
        shell: cmd
