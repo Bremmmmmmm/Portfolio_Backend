@@ -42,7 +42,13 @@ jobs:
     
     - name: Test with coverage
       run: |
-        dotnet test --collect:"XPlat Code Coverage;Format=opencover;--results-directory ./TestResults";Exclude=[DataAccess]*,[ViewerVerse_API]*" 
+        dotnet test --collect:"XPlat Code Coverage;Format=opencover;Exclude=[DataAccess]*,[ViewerVerse_API]*" 
+
+    - name: Upload coverage reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-reports
+        path: covarage/coverage.opencover.xml
         
     - name: Install ReportGenerator tool
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
@@ -55,21 +61,6 @@ jobs:
       with:
         name: code-coverage-report
         path: coverage/
-
-
-    - name: Generate OpenCover coverage report
-      run: |
-        coverlet ./bin/Release/net7.0/YourProject.dll \
-        --target "dotnet" \
-        --targetargs "test" \
-        --format opencover \
-        --output ./TestResults/coverage.opencover.xml
-
-    - name: Upload coverage reports
-      uses: actions/upload-artifact@v3
-      with:
-        name: coverage-reports
-        path: TestResults/coverage.opencover.xml
 
     - name: Fail if coverage is under 80%
       run: |
