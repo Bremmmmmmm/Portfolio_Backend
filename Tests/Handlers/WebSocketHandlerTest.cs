@@ -1,4 +1,5 @@
-﻿using Logic.Handlers;
+﻿using System.Collections;
+using Logic.Handlers;
 using Moq;
 using Fleck;
 
@@ -15,10 +16,11 @@ public class WebSocketHandlerTest
         var mockSocket = new Mock<IWebSocketConnection>().Object;
 
         // Act
-        handler.AddSocket(mockSocket);
+        handler.AssignUserToSocket(mockSocket, "TestUser");
 
         // Assert
-        CollectionAssert.Contains(handler.GetSockets(), mockSocket);
+        Console.WriteLine(handler.GetSockets());
+        CollectionAssert.Contains((ICollection?)handler.GetSockets().Values, mockSocket);
     }
 
     [TestMethod]
@@ -27,10 +29,10 @@ public class WebSocketHandlerTest
         // Arrange
         var handler = new WebSocketHandler();
         var mockSocket = new Mock<IWebSocketConnection>().Object;
-        handler.AddSocket(mockSocket);
+        handler.AssignUserToSocket(mockSocket, "TestUser");
 
         // Act
-        handler.RemoveSocket(mockSocket);
+        handler.RemoveUserSocket(mockSocket, "TestUser");
 
         // Assert
         CollectionAssert.DoesNotContain(handler.GetSockets(), mockSocket);
@@ -44,8 +46,8 @@ public class WebSocketHandlerTest
         var mockSocket1 = new Mock<IWebSocketConnection>();
         var mockSocket2 = new Mock<IWebSocketConnection>();
         const string message = "Test message";
-        handler.AddSocket(mockSocket1.Object);
-        handler.AddSocket(mockSocket2.Object);
+        handler.AssignUserToSocket(mockSocket1.Object, "TestUser1");
+        handler.AssignUserToSocket(mockSocket2.Object, "TestUser2");
 
         // Act
         handler.SendMessageToAll(message);
@@ -53,5 +55,37 @@ public class WebSocketHandlerTest
         // Assert
         mockSocket1.Verify(s => s.Send(message), Times.Once);
         mockSocket2.Verify(s => s.Send(message), Times.Once);
+    }
+
+    [TestMethod]
+    public void SendMessageToAdmin()
+    {
+        // Arrange
+        var handler = new WebSocketHandler();
+        var mockSocket1 = new Mock<IWebSocketConnection>();
+        const string message = "Test message";
+        handler.AssignUserToSocket(mockSocket1.Object, "admin");
+        
+        // Act
+        handler.sendMessageToAdmin(message, "TestUser1");
+        
+        // Assert
+        mockSocket1.Verify(s => s.Send("TestUser1: Test message"), Times.Once);
+    }
+
+    [TestMethod]
+    public void sendMessageToUser()
+    {
+        // Arrange
+        var handler = new WebSocketHandler();
+        var mockSocket1 = new Mock<IWebSocketConnection>();
+        const string message = "Test message";
+        handler.AssignUserToSocket(mockSocket1.Object, "TestUser1");
+        
+        // Act
+        handler.sendMessageToUser(message, "TestUser1");
+        
+        // Assert
+        mockSocket1.Verify(s => s.Send("Admin: Test message"), Times.Once);
     }
 }

@@ -18,6 +18,7 @@ public class PortfolioEntryMock : IPortfolioEntryDal
     
     public async Task CreatePortfolioEntry(PortfolioEntryDto portfolioEntryDto)
     {
+        portfolioEntryDto.Id = _entries.Count;
         await Task.Run(() => _entries.Add(portfolioEntryDto));
     }
 

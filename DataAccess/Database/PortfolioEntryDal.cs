@@ -16,9 +16,8 @@ public class PortfolioEntryDal(string connectionString) : IPortfolioEntryDal
                 await connection.OpenAsync();
                 await using var command =
                     new SqlCommand(
-                        "INSERT INTO PortfolioEntry (id, title, description, mediaUrl) VALUES (@id, @title, @description, @mediaUrl)",
+                        "INSERT INTO PortfolioEntry (title, description, mediaUrl) VALUES (@title, @description, @mediaUrl)",
                         connection);
-                command.Parameters.AddWithValue("@id", portfolioEntryDto.Id);
                 command.Parameters.AddWithValue("@title", portfolioEntryDto.Title);
                 command.Parameters.AddWithValue("@description", portfolioEntryDto.Description);
                 command.Parameters.AddWithValue("@mediaUrl", portfolioEntryDto.MediaUrl);
@@ -92,7 +91,7 @@ public class PortfolioEntryDal(string connectionString) : IPortfolioEntryDal
                         Id = reader.GetInt32(0),
                         Title = reader.GetString(1),
                         Description = reader.GetString(2),
-                        MediaUrl = reader.GetString(3)
+                        MediaUrl = reader.IsDBNull(3) ? null : reader.GetString(3)
                     });
                 }
             }

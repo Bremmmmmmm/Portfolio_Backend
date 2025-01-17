@@ -3,4 +3,5 @@
 public interface ILogicFactoryBuilder
 {
     public IHandlerFactory BuildHandlerFactory();
+    
 }

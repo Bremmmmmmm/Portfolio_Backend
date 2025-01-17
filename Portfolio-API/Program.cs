@@ -59,14 +59,57 @@ server.Start(socket =>
 {
     socket.OnOpen = () =>
     {
-        Console.WriteLine("WebSocket Opened");
-        webSocketManager.AddSocket(socket);
+        // Extract the path and manually parse query parameters
+        var path = socket.ConnectionInfo.Path; // Example: "/?user=admin"
+        var user = ExtractQueryParameter(path, "user");
+
+        if (user == "admin")
+        {
+            Console.WriteLine("Admin user connected.");
+            webSocketManager.AssignUserToSocket(socket, user);
+        }
+        else
+        {
+            Console.WriteLine("Normal user connected.");
+            webSocketManager.AssignUserToSocket(socket, user);
+        }
     };
+
     socket.OnClose = () =>
     {
-        Console.WriteLine("WebSocket Closed");
-        webSocketManager.RemoveSocket(socket);
+        var path = socket.ConnectionInfo.Path;
+        var user = ExtractQueryParameter(path, "user");
+        
+        if (user == "admin")
+        {
+            webSocketManager.RemoveUserSocket(socket, user);
+            Console.WriteLine("Admin user disconnected.");
+        }
+        else
+        {
+            webSocketManager.RemoveUserSocket(socket, user);
+            Console.WriteLine("WebSocket Closed");
+        }
     };
+    
+    string ExtractQueryParameter(string path, string key)
+    {
+        var queryStart = path.IndexOf("?");
+        if (queryStart >= 0)
+        {
+            var query = path.Substring(queryStart + 1); // Remove "?"
+            var pairs = query.Split('&');
+            foreach (var pair in pairs)
+            {
+                var keyValue = pair.Split('=');
+                if (keyValue.Length == 2 && keyValue[0] == key)
+                {
+                    return keyValue[1]; // Return value associated with the key
+                }
+            }
+        }
+        return null;
+    }
 });
 
 app.Run();

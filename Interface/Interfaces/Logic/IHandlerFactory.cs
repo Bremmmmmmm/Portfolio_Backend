@@ -3,4 +3,5 @@
 public interface IHandlerFactory
 {
     public IPortfolioEntryHandler BuildPortfolioEntryHandler();
+    public IWebSocketHandler BuildWebSocketHandler();
 }

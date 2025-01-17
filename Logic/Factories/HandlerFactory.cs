@@ -9,4 +9,9 @@ public class HandlerFactory(IContainerFactory containerFactory) : IHandlerFactor
     {
         return new PortfolioEntryHandler(containerFactory.BuildPortfolioEntryContainer());
     }
+    
+    public IWebSocketHandler BuildWebSocketHandler()
+    {
+        return new WebSocketHandler();
+    }
 }

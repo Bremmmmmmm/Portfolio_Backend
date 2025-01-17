@@ -10,7 +10,6 @@ public class PortfolioEntryHandler(IPortfolioEntryContainer portfolioEntryContai
     {
         await portfolioEntryContainer.CreatePortfolioEntry(new PortfolioEntryDto
         {
-            Id = body.Id,
             Title = body.Title,
             Description = body.Description,
             MediaUrl = body.MediaUrl

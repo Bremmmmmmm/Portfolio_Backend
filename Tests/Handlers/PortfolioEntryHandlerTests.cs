@@ -90,7 +90,6 @@ public class PortfolioEntryHandlerTests
         await portfolioEntryHandler.UpdatePortfolioEntry(_portfolioEntryBody);
         //assert
         var portfolioEntry = await portfolioEntryHandler.GetPortfolioEntryById(1);
-        Assert.AreEqual(1, portfolioEntry.Id);
         Assert.AreEqual("Title2", portfolioEntry.Title);
         Assert.AreEqual("Description", portfolioEntry.Description);
         Assert.AreEqual("MediaUrl", portfolioEntry.MediaUrl);

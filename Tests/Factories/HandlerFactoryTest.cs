@@ -35,4 +35,15 @@ public class HandlerFactoryTest
         //assert
         Assert.IsNotNull(portfolioEntryHandler);
     }
+    
+    [TestMethod]
+    public void BuildWebSocketHandlerTest()
+    {
+        //arrange
+        var handlerFactory = new HandlerFactory(_containerFactory);
+        //act
+        var webSocketHandler = handlerFactory.BuildWebSocketHandler();
+        //assert
+        Assert.IsNotNull(webSocketHandler);
+    }
 }

@@ -99,8 +99,7 @@ public class PortfolioEntryController(ILogicFactoryBuilder logicFactoryBuilder) 
     
     private static (bool, string) CreatePortfolioEntryRequestIsValid(PortfolioEntryBody body)
     {
-        return body.Id <= 0 ? (false, "Invalid Id") :
-            string.IsNullOrWhiteSpace(body.Title) ? (false, "Title is required") :
+        return string.IsNullOrWhiteSpace(body.Title) ? (false, "Title is required") :
             string.IsNullOrWhiteSpace(body.Description) ? (false, "Description is required") :
             string.IsNullOrWhiteSpace(body.MediaUrl) ? (false, "MediaUrl is required") : (true, string.Empty);
     }
